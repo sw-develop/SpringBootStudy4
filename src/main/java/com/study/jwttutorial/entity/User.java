@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
 @Getter
 @Setter
 @Builder
@@ -37,7 +36,7 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "user_authority",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authorityName")})
     private Set<Authority> authorities; //user 테이블의 필드
 }
