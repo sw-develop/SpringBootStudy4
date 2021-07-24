@@ -29,10 +29,12 @@ public class UserService {
     @Transactional
     public User signup(UserDto userDto){
         //name으로 사용자 식별함
+        //A.이미 가입한 유저인 경우
         if(userRepository.findOneWithAuthoritiesByName(userDto.getName()).orElse(null) != null){
             throw new RuntimeException("이미 가입되어 있는 유저입니다.");
         }
 
+        //B.가입하지 않은 유저인 경우
         //빌더 패턴의 장점
         Authority authority = Authority.builder()
                 .authorityName("ROLE_USER") //회원가입하는 유저는 ROLE_USER 권한을 가짐
@@ -46,7 +48,7 @@ public class UserService {
                 .activated(true)
                 .build();
 
-        return userRepository.save(user);
+        return userRepository.save(user); //User 객체 저장
     }
 
     /*

@@ -4,7 +4,6 @@ import com.study.jwttutorial.jwt.JwtAccessDeniedHandler;
 import com.study.jwttutorial.jwt.JwtAuthenticationEntryPoint;
 import com.study.jwttutorial.jwt.JwtSecurityConfig;
 import com.study.jwttutorial.jwt.TokenProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

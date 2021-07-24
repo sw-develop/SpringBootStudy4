@@ -38,5 +38,5 @@ public class User {
             name = "user_authority",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authorityName")})
-    private Set<Authority> authorities; //user 테이블의 필드
+    private Set<Authority> authorities;
 }

@@ -30,7 +30,7 @@ public class AuthController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<TokenDto> authorize(@Valid @RequestBody LoginDto loginDto){
+    public ResponseEntity<TokenDto> authorize(@Valid @RequestBody LoginDto loginDto){ //validation
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(loginDto.getName(), loginDto.getPassword());
 

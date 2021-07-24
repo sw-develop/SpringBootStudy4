@@ -18,11 +18,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello(){
-        return ResponseEntity.ok("hello");
-    }
-
     @PostMapping("/signup")
     public ResponseEntity<User> signup(@Valid @RequestBody UserDto userDto){ //검사1) @Valid : RequestBody 값에 대한 validation 처리
         //검사2) 기존에 존재하는 유저인지 확인

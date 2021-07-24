@@ -6,6 +6,10 @@ import lombok.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/*
+회원가입 시 사용할 DTO
+ */
+
 @Getter
 @Setter
 @Builder
