@@ -21,13 +21,13 @@
 
 [JWT 관련 코드 작성](#JWT-관련-코드-작성)
 
-1. [application.yml 설정 추가](application.yml-설정-추가)
+1. [application.yml 설정 추가](#application.yml-설정-추가)
 2. [build.gradle에 JWT dependencies 추가](#build.gradle에-JWT-dependencies-추가)
 3. [Token Provider 생성 - 토큰 생성, Authentication 객체 반환, 토큰의 유효성 검증](#Token-Provider-생성---토큰-생성,-Authentication-객체-반환,-토큰의-유효성-검증)
 4. [JWT를 위한 커스텀 필터인 JwtFilter 클래스 생성](#JWT를-위한-커스텀-필터인-JwtFilter-클래스-생성)
-5. [JwtSecurityConfig 클래스 추가 - TokenProvider와 JwtFilter를 SecurityConfig에 적용할 때 사용](JwtSecurityConfig-클래스-추가---TokenProvider와-JwtFilter를-SecurityConfig에-적용할-때-사용)
-6. [유효한 자격증명을 제공하지 않고 접근하려 할 때 401 Unauthorized 에러를 리턴할 JwtAuthenticationEntryPoint 클래스 생성](유효한-자격증명을-제공하지-않고-접근하려-할-때-401-Unauthorized-에러를-리턴할-JwtAuthenticationEntryPoint-클래스-생성)
-7. [권한이 존재하지 않는 경우 403 forbidden 에러를 리턴할 JwtAccessDeniedHandler 클래스 생성](권한이-존재하지-않는-경우-403-forbidden-에러를-리턴할-JwtAccessDeniedHandler-클래스-생성)
+5. [JwtSecurityConfig 클래스 추가 - TokenProvider와 JwtFilter를 SecurityConfig에 적용할 때 사용](#JwtSecurityConfig-클래스-추가---TokenProvider와-JwtFilter를-SecurityConfig에-적용할-때-사용)
+6. [유효한 자격증명을 제공하지 않고 접근하려 할 때 401 Unauthorized 에러를 리턴할 JwtAuthenticationEntryPoint 클래스 생성](#유효한-자격증명을-제공하지-않고-접근하려-할-때-401-Unauthorized-에러를-리턴할-JwtAuthenticationEntryPoint-클래스-생성)
+7. [권한이 존재하지 않는 경우 403 forbidden 에러를 리턴할 JwtAccessDeniedHandler 클래스 생성](#권한이-존재하지-않는-경우-403-forbidden-에러를-리턴할-JwtAccessDeniedHandler-클래스-생성)
 8. [SecurityConfig 파일 설정 추가](#SecurityConfig-파일-설정-추가)
 
 [DTO](#DTO)
@@ -54,7 +54,7 @@
 3. [UserService의 메소드들을 호출할 UserController 생성](#UserService의-메소드들을-호출할-UserController-생성)
 4. [API TEST4](#[API-TEST4])
 
-[API DOCS with Postman](https://www.getpostman.com/collections/9b93a6c2eb6cb791bf9e)
+[API DOCS with Postman](https://documenter.getpostman.com/view/12950398/TzsZr8mW)
 
 ---
 
@@ -1256,7 +1256,7 @@ public ResponseEntity<User> getUserInfo(@PathVariable String name){
 
 ---
 
-### [API DOCS with Postman](https://www.getpostman.com/collections/9b93a6c2eb6cb791bf9e) 
+### [API DOCS with Postman](https://documenter.getpostman.com/view/12950398/TzsZr8mW) 
 
 
 
