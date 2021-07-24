@@ -8,23 +8,53 @@
 
 [401 Unauthorized 문제 상황 확인](#401-Unauthorized-문제-상황-확인)
 
-- [API TEST](#API-TEST)
+- [API TEST1](#API-TEST1)
 
 - [401 Unauthorized 문제 상황 해결을 위한 Security 설정](#401-Unauthorized-문제-상황-해결을-위한-Security-설정)
+  - [API TEST2](#API-TEST2)
 
-  - [API TEST](#API-TEST)
+[JWT 적용을 위한 기본적인 구성](#JWT-적용을-위한-기본적인-구성)
 
-  
+1. [Entity 생성](#Entity-생성)
+2. [H2 데이터베이스에 데이터 자동 생성](#H2-데이터베이스에-데이터-자동-생성)
+3. [H2 콘솔 접근을 위한 Security 설정 수정](#H2-콘솔-접근을-위한-Security-설정-수정)
 
+[JWT 관련 코드 작성](#JWT-관련-코드-작성)
 
+1. [application.yml 설정 추가](application.yml-설정-추가)
+2. [build.gradle에 JWT dependencies 추가](#build.gradle에-JWT-dependencies-추가)
+3. [Token Provider 생성 - 토큰 생성, Authentication 객체 반환, 토큰의 유효성 검증](#Token-Provider-생성---토큰-생성,-Authentication-객체-반환,-토큰의-유효성-검증)
+4. [JWT를 위한 커스텀 필터인 JwtFilter 클래스 생성](#JWT를-위한-커스텀-필터인-JwtFilter-클래스-생성)
+5. [JwtSecurityConfig 클래스 추가 - TokenProvider와 JwtFilter를 SecurityConfig에 적용할 때 사용](JwtSecurityConfig-클래스-추가---TokenProvider와-JwtFilter를-SecurityConfig에-적용할-때-사용)
+6. [유효한 자격증명을 제공하지 않고 접근하려 할 때 401 Unauthorized 에러를 리턴할 JwtAuthenticationEntryPoint 클래스 생성](유효한-자격증명을-제공하지-않고-접근하려-할-때-401-Unauthorized-에러를-리턴할-JwtAuthenticationEntryPoint-클래스-생성)
+7. [권한이 존재하지 않는 경우 403 forbidden 에러를 리턴할 JwtAccessDeniedHandler 클래스 생성](권한이-존재하지-않는-경우-403-forbidden-에러를-리턴할-JwtAccessDeniedHandler-클래스-생성)
+8. [SecurityConfig 파일 설정 추가](#SecurityConfig-파일-설정-추가)
 
+[DTO](#DTO)
 
+1. [LoginDTO → 로그인 요청 시 사용할 DTO](#LoginDTO-→-로그인-요청-시-사용할-DTO)
+2. [TokenDTO](#TokenDTO-(토큰-정보를-response-할))
+3. [UserDto → 회원가입 요청 시 사용할 DTO](#UserDto-→-회원가입-요청-시-사용할-DTO)
 
+[추가 개념 정리](#추가-개념-정리)
 
+[Repository](#Repository)
 
+[Service](#Service)
 
+[Controller](#Controller)
 
+- [로그인 API](#로그인-API)
+- [API TEST](#[API-TEST3])
 
+[회원가입 API 생성, 권한검증 확인](#회원가입-API-생성,-권한검증-확인)
+
+1. [간단한 유틸리티 메소드 생성을 위한 SecurityUtil 클래스 생성](#간단한-유틸리티-메소드-생성을-위한-SecurityUtil-클래스-생성)
+2. [회원가입, 유저정보조회 메소드 생성을 위한 UserService 클래스 생성](#회원가입,-유저정보조회-메소드-생성을-위한-UserService-클래스-생성)
+3. [UserService의 메소드들을 호출할 UserController 생성](#UserService의-메소드들을-호출할-UserController-생성)
+4. [API TEST4](#[API-TEST4])
+
+[API DOCS with Postman](https://www.getpostman.com/collections/9b93a6c2eb6cb791bf9e)
 
 ---
 
@@ -60,7 +90,7 @@
  }
  ```
 
-#### **[API TEST]** 
+#### **[API TEST1]** 
 
 ![test1](./img/test1.png)
 
@@ -102,7 +132,7 @@ antMatchers("/api/hello").permitAll() : /api/hello에 대한 요청은 인증없
 
 anyRequest().authenticated() : 나머지 요청들은 모두 인증이 필요하다는 의미
 
-#### **[API TEST]** 
+#### **[API TEST2]** 
 
 ![test2](./img/test2.png)
 
@@ -912,7 +942,7 @@ public class AuthController {
 
 → @Valid @RequestBody : validation
 
-#### [API TEST]
+#### [API TEST3]
 
 전제 :
 
@@ -1131,9 +1161,9 @@ public final class Optional<T>{
 
 
 
-### [API TEST]
+### [API TEST4]
 
-#### 1. 회원가입 → 회원가입 할 때는 Token 발급 X (로그인했을 때만 토큰 발급하는 것임)
+### 1. 회원가입 → 회원가입 할 때는 Token 발급 X (로그인했을 때만 토큰 발급하는 것임)
 
 요청 : POST /api/signup
 
@@ -1175,7 +1205,7 @@ public ResponseEntity<User> getUserInfo(@PathVariable String name){
 }
 ```
 
-#### 2-1. ROLE_ADMIN 권한을 가진 객체일 때
+### 2-1. ROLE_ADMIN 권한을 가진 객체일 때
 
 - **GET /api/user/**
 
@@ -1227,4 +1257,8 @@ public ResponseEntity<User> getUserInfo(@PathVariable String name){
 ---
 
 ### [API DOCS with Postman](https://www.getpostman.com/collections/9b93a6c2eb6cb791bf9e) 
+
+
+
+[참고] [Spring Boot jwt-tutorial](https://www.inflearn.com/course/스프링부트-jwt/dashboard)
 
