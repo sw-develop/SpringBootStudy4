@@ -24,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String username){
-        return userRepository.findOneWithAuthoritiesByName(username)
+        return userRepository.findOneWithAuthoritiesByName(username) //로그인 시 DB에서 유저정보와 권한정보를 가져옴
                 .map(user -> createUser(username, user))
                 .orElseThrow(() -> new UsernameNotFoundException(username + " -> 데이터베이스에서 찾을 수 없습니다."));
     }
@@ -35,9 +35,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); //해당 user의 권한정보
         return new org.springframework.security.core.userdetails.User(user.getName(),
                 user.getPassword(),
-                grantedAuthorities);
+                grantedAuthorities); //user의 이름, 패스워드, 권한정보를 가지고 User 객체 생성함
     }
 }
