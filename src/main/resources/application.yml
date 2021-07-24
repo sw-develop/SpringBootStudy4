@@ -22,3 +22,8 @@ Spring:
 logging:
   level:
     com.study: DEBUG
+
+jwt:
+  header: Authorization
+  secret: ZGV2Y29tbXVuaXR5LXNwcmluZy1ib290LWp3dC1zb2NpYWwtbG9naW4tZGV2Y29tbXVuaXR5LXNwcmluZy1ib290LWp3dC1zb2NpYWwtbG9naW4K
+  token-validity-in-seconds: 86400
