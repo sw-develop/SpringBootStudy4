@@ -290,7 +290,15 @@ public void configure(WebSecurity web) throws Exception {
 
 ![config1](./img/config1.png)
 
-→ SecurityConfig 클래스가 상속받은 WebSecurityConfigurerAdapter 클래스 내의 메소드 설명을 보면, 해당 메서드를 오버라이딩하여 특정 Endpoints에 대한 SpringSecurity 적용을 제외시키는 역할을 수행함
+→ SecurityConfig 클래스가 상속받은 WebSecurityConfigurerAdapter 클래스 내의 메소드 설명을 보면, 해당 메서드를 오버라이딩하여 **특정 Endpoints에 대한 SpringSecurity 적용을 제외시키는 역할을 수행**함
+
+**[추가 개념 정리]** 
+
+favicon : 인터넷 웹 브라우저의 주소창에 표시되는 웹 사이트나 웹 페이지를 대표하는 아이콘 
+
+→ 스프링부트의 경우 나뭇잎 모양
+
+→ 이미지를 파비콘으로 삽입하기 위해서는 ICO 파일로의 변환이 필요함
 
 ---
 
